@@ -9,14 +9,14 @@ export const validateRequest = (schema: ZodSchema) => {
       next();
     } catch (error) {
       if (error instanceof ZodError) {
-        const issues = error.issues.map(i => ({
+        const issues = error.issues.map((i) => ({
           field: i.path.join('.'),
           message: i.message
         }));
         ResponseFormatter.error(res, issues, 'Validation Failed', 400);
         return;
       }
-      ResponseFormatter.error(res, error, 'Bad Request', 400);
+      ResponseFormatter.error(res, String(error), 'Bad Request', 400);
     }
   };
 };
