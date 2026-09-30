@@ -24,6 +24,23 @@ export const swaggerDocument = {
         }
       }
     },
+    '/health/live': {
+      get: {
+        summary: 'Kubernetes liveness probe',
+        responses: {
+          '200': { description: 'Process is alive' }
+        }
+      }
+    },
+    '/health/ready': {
+      get: {
+        summary: 'Kubernetes readiness probe',
+        responses: {
+          '200': { description: 'Service and dependencies are ready' },
+          '503': { description: 'Service or dependencies are degraded or unhealthy' }
+        }
+      }
+    },
     '/auth/register': {
       post: {
         summary: 'Register a new user',

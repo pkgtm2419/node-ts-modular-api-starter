@@ -22,6 +22,10 @@ class InMemoryCache {
   async del(key: string): Promise<number> {
     return this.store.delete(key) ? 1 : 0;
   }
+
+  async ping(): Promise<'PONG'> {
+    return 'PONG';
+  }
 }
 
 export const cacheClient = new InMemoryCache();
