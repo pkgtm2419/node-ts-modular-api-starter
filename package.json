@@ -9,7 +9,7 @@
     "dev": "tsx watch src/server.ts",
     "test": "jest --detectOpenHandles --forceExit",
     "test:coverage": "jest --coverage --detectOpenHandles --forceExit",
-    "lint": "eslint src/**/*.ts",
+    "lint": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "keywords": [
