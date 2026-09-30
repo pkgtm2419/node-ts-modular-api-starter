@@ -100,6 +100,22 @@ npm start
 
 API will be running on `http://localhost:5000` with Swagger documentation at `http://localhost:5000/api/docs`.
 
+### 5. Quick Verification via cURL
+```bash
+# Check server health
+curl -s http://localhost:5000/api/v1/health
+
+# Register a user
+curl -s -X POST http://localhost:5000/api/v1/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Pawan Gautam","email":"pawan@example.com","password":"Password123"}'
+
+# Login and obtain JWT
+curl -s -X POST http://localhost:5000/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"pawan@example.com","password":"Password123"}'
+```
+
 ---
 
 ## 🧪 Testing
